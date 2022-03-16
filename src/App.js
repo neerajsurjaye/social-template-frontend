@@ -4,8 +4,11 @@ import './assets/index.css';
 import './components/Home';
 // import Home from './components/Home';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
+
 import get from './services/get';
 import userContext from './context/userContext';
+import PostList from './components/PostList';
 
 function App() {
 
@@ -25,11 +28,12 @@ function App() {
             let res = await get.currentUser(token);
 
             if (res.success) {
-                console.log(res.success);
+                // console.log(res.success);
                 setCurentUser(res.success);
                 setIsLogin(true);
             } else {
                 setIsLogin(false);
+                setCurentUser(null);
             }
 
         }
@@ -42,8 +46,10 @@ function App() {
 
 
     return (
-        <userContext.Provider value={[currentUser, setCurentUser]}>;
+        <userContext.Provider value={[currentUser, setCurentUser]}>
+            <Navbar />
             <Login></Login>
+            <PostList></PostList>
         </userContext.Provider>
     );
 }

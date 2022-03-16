@@ -32,7 +32,7 @@ const Login = () => {
 
     let login = async () => {
         let res = await post.login(userName, password);
-
+        // console.log(res);
         if (res.success) {
             localStorage.setItem('Auth', res.success);
         } else {
@@ -56,8 +56,6 @@ const Login = () => {
     }, [])
 
     return <div className="login">
-
-
 
         <input
             type="button"

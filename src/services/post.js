@@ -3,7 +3,7 @@ const signUp = async (username, password) => {
 
     let data = { username, password };
 
-    let res = await fetch(`${URL}/api/user`, {
+    let res = await fetch(`${URL}/api/users`, {
         method: 'post',
         body: JSON.stringify(data),
         mode: 'cors',
