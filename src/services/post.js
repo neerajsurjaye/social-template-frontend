@@ -37,6 +37,22 @@ let login = async (username, password) => {
 
 }
 
+let uploadPost = async (post, token) => {
+    console.log(post);
+    let res = await fetch(`${URL}/api/posts`, {
+        method: 'post',
+        body: JSON.stringify(post),
+        mode: 'cors',
+        headers: {
+            'Content-type': 'application/json',
+            'authorization': token,
+        }
+    })
+
+    return await res.json();
+
+}
 
 
-export default { signUp, login };
+
+export default { signUp, login, uploadPost };

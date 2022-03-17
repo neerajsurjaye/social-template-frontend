@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import get from './services/get';
 import userContext from './context/userContext';
 import PostList from './components/PostList';
+import PostForm from './components/PostForm';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
             <Navbar />
             <Login></Login>
             <PostList></PostList>
+            <PostForm></PostForm>
         </userContext.Provider>
     );
 }
