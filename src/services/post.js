@@ -38,7 +38,7 @@ let login = async (username, password) => {
 }
 
 let uploadPost = async (post, token) => {
-    console.log(post);
+    // console.log(post);
     let res = await fetch(`${URL}/api/posts`, {
         method: 'post',
         body: JSON.stringify(post),
@@ -53,6 +53,26 @@ let uploadPost = async (post, token) => {
 
 }
 
+let updateVotes = async (pid, dec, token) => {
+
+    let data = {
+        id: pid,
+        dec: dec
+    }
+
+    let res = await fetch(`${URL}/api/posts/${pid}/votes`, {
+        method: 'post',
+        body: JSON.stringify(data),
+        mode: 'cors',
+        headers: {
+            'Content-type': 'application/json',
+            'authorization': token,
+        }
+    })
+
+    return await res.json();
+
+}
 
 
-export default { signUp, login, uploadPost };
+export default { signUp, login, uploadPost, updateVotes };
