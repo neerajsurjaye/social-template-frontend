@@ -25,8 +25,22 @@ let currentUser = async (token) => {
 
 }
 
+let getPostById = async (id) => {
+
+    let res = await fetch(`${URL}/api/posts/${id}`);
+    return await res.json();
+
+}
+
+
+let getAllComments = async (id) => {
+
+    let res = await fetch(`${URL}/api/posts/${id}/comments`);
+    return await res.json();
+
+}
 
 
 
-const module = { post, currentUser };
+const module = { post, currentUser, getPostById, getAllComments };
 export default module;

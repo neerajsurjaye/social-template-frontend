@@ -32,8 +32,9 @@ const PostList = () => {
         // console.log({ currPost });
 
         let list = currPost.map((x) => {
-            return <Post key={x._id} post={x}>
-
+            return <Post
+                key={x._id}
+                post={x}>
             </Post>
         })
 

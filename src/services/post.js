@@ -74,5 +74,27 @@ let updateVotes = async (pid, dec, token) => {
 
 }
 
+let uploadComment = async (id, text, token) => {
 
-export default { signUp, login, uploadPost, updateVotes };
+    let data = {
+        id: id,
+        text: text
+    }
+
+    let res = await fetch(`${URL}/api/posts/${id}/comments`, {
+        method: 'post',
+        body: JSON.stringify(data),
+        mode: 'cors',
+        headers: {
+            'Content-type': 'application/json',
+            'authorization': token,
+        }
+    })
+
+    return await res.json();
+
+}
+
+
+
+export default { signUp, login, uploadPost, updateVotes, uploadComment };

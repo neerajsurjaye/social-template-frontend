@@ -6,10 +6,13 @@ import './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import get from './services/get';
 import userContext from './context/userContext';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
+import SinglePost from './components/SinglePost';
 
 function App() {
 
@@ -47,12 +50,22 @@ function App() {
 
 
     return (
-        <userContext.Provider value={[currentUser, setCurentUser]}>
-            <Navbar />
-            <Login></Login>
-            <PostList></PostList>
-            <PostForm></PostForm>
-        </userContext.Provider>
+        <Router>
+            <userContext.Provider value={[currentUser, setCurentUser]}>
+
+                <Navbar />
+                <Routes>
+
+                    <Route path='/' element={<PostList />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/newpost' element={<PostForm />} />
+                    <Route path='/post/:id' element={<SinglePost />} />
+
+                </Routes>
+
+
+            </userContext.Provider>
+        </Router >
     );
 }
 

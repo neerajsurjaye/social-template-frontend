@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import userContext from '../context/userContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -8,22 +9,28 @@ const Navbar = () => {
     let userTab = () => {
 
         if (currentUser) {
-            return <div>
+            return <Link to='/login'>
                 user : {currentUser.username}
-            </div>
+            </Link>
         } else {
-            return <div>
+            return <Link to='/login'>
                 Login/Sign Up
-            </div>
+            </Link>
         }
 
     }
 
     return <div className="navbar">
-        Social Template
+        <Link to='/'>
+            Social Template
+        </Link>
 
 
         {userTab()}
+
+        <Link to='/newpost'>
+            Add new post +
+        </Link>
 
     </div>
 

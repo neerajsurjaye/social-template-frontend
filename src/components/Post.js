@@ -1,10 +1,12 @@
 import { useState } from "react";
-import post from "../services/post"
+import { Link } from "react-router-dom";
+import post from "../services/post";
 
 
 const Post = (props) => {
 
-    let [votes, setVotes] = useState(props.post.votes);
+    // console.log("Post", props.post, props.post);
+    let [votes, setVotes] = useState(props?.post?.votes);
 
     let updateVotes = async (c) => {
 
@@ -34,12 +36,18 @@ const Post = (props) => {
         return tags;
     }
 
-    // console.log({ props });
-    return <div className="post">
-        {/* {console.log({ votes })} */}
-        <div className="post-title">
-            {props.post.title}
+    if (!props.post) {
+        return <div className="post">
+            Undef
         </div>
+    }
+
+    // console.log({ props });
+    return <Link to={`/post/${props.post._id}`} className="post" >
+        {/* {console.log({ votes })} */}
+        < div className="post-title" >
+            {props.post.title}
+        </div >
         <div className="post-desc">
             {props.post.text}
         </div>
@@ -61,7 +69,7 @@ const Post = (props) => {
                 V
             </div>
         </div>
-    </div>
+    </Link >
 
 }
 
