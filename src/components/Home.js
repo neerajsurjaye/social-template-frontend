@@ -1,20 +1,23 @@
 import { useEffect } from 'react';
 import get from '../services/get';
+import PostList from './PostList';
+import Search from './Search';
 
 const Home = () => {
 
-    const getPost = async () => {
-        console.log(await get.post());
-    }
+    // const getPost = async () => {
+    //     console.log(await get.post());
+    // }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        getPost();
+    //     getPost();
 
-    }, [])
+    // }, [])
 
     return <div>
-        Home
+
+        <PostList></PostList>
 
     </div>
 }

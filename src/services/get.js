@@ -1,9 +1,9 @@
 import URL from './url';
 
-let post = async (page) => {
+let post = async (page, search, sort) => {
 
-    console.log(page);
-    let res = await fetch(`${URL}/api/posts?page=${page}`)
+    // console.log({ page, search });
+    let res = await fetch(`${URL}/api/posts?page=${page}&search=${search}&sort=${sort}`)
     let posts = await res.json();
     return posts;
 

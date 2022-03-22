@@ -6,12 +6,19 @@ const Navbar = () => {
 
     let [currentUser, setCurrentUser] = useContext(userContext);
 
+    let logOut = () => {
+        setCurrentUser(null);
+    }
+
     let userTab = () => {
 
         if (currentUser) {
-            return <Link to='/login'>
+            return <div className='nav-userdetails'>
                 user : {currentUser.username}
-            </Link>
+                <div className="btn" onClick={logOut}>
+                    Logout
+                </div>
+            </div>
         } else {
             return <Link to='/login'>
                 Login/Sign Up

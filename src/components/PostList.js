@@ -3,15 +3,20 @@ import { useState } from 'react';
 import get from '../services/get';
 import Post from '../components/Post';
 import PageCounter from './PageCounter';
+import Search from './Search';
 
-const PostList = () => {
+const PostList = (props) => {
 
     let [currPost, setCurrPost] = useState();
     let [pageCount, setPageCount] = useState(0);
     let [page, setPage] = useState(0);
+    let [search, setSearch] = useState("");
+    let [sort, setSort] = useState("new");
+    // let [reload, setReload] = useState("false");
 
     let getPost = async () => {
-        let res = await get.post(page);
+
+        let res = await get.post(page, search, sort);
 
         if (res.success) {
             setCurrPost(res.success.posts);
@@ -25,11 +30,9 @@ const PostList = () => {
     let genList = () => {
         if (!currPost) {
             return <div>
-                nothing to show
+                Loading
             </div>
         }
-
-        // console.log({ currPost });
 
         let list = currPost.map((x) => {
             return <Post
@@ -43,14 +46,17 @@ const PostList = () => {
     }
 
     useEffect(() => {
+        setCurrPost(null);
         getPost();
-    }, [page]);
+    }, [page, search, sort]);
 
     return <div className="postlist">
-        {genList()}
 
-        <PageCounter total={pageCount} page={[page, setPage]}></PageCounter>
-    </div>
+        <Search search={[search, setSearch]} setSort={setSort}></Search>
+        {genList()}
+        <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+
+    </div >
 
 }
 

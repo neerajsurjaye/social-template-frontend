@@ -13,6 +13,7 @@ import userContext from './context/userContext';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 import SinglePost from './components/SinglePost';
+import Home from './components/Home';
 
 function App() {
 
@@ -56,7 +57,7 @@ function App() {
                 <Navbar />
                 <Routes>
 
-                    <Route path='/' element={<PostList />} />
+                    <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/newpost' element={<PostForm />} />
                     <Route path='/post/:id' element={<SinglePost />} />

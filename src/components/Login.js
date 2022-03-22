@@ -35,6 +35,7 @@ const Login = () => {
         // console.log(res);
         if (res.success) {
             localStorage.setItem('Auth', res.success);
+            setCurrentUser(res.success);
         } else {
             localStorage.setItem('Auth', null);
         }
