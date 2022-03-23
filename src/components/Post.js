@@ -7,6 +7,8 @@ const Post = (props) => {
 
     // console.log("Post", props.post, props.post);
     let [votes, setVotes] = useState(props?.post?.votes);
+    let user = props?.post?.user;
+
 
     let updateVotes = async (c) => {
 
@@ -44,7 +46,7 @@ const Post = (props) => {
 
     // console.log({ props });
     return <Link to={`/post/${props.post._id}`} className="post" >
-        {/* {console.log({ votes })} */}
+
         < div className="post-title" >
             {props.post.title}
         </div >
@@ -55,6 +57,10 @@ const Post = (props) => {
             {genTags()}
         </li>
 
+
+        <Link className="post-user" to={`/user/${user._id}`}>
+            {user.username}
+        </Link>
 
         <div className="votes">
             <div className="votes-inc" onClick={() => { updateVotes(1) }}>

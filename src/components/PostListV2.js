@@ -5,9 +5,9 @@ import Post from '../components/Post';
 import PageCounter from './PageCounter';
 import Search from './Search';
 
-const PostList = (props) => {
+const PostListV2 = (props) => {
 
-    let [currPost, setCurrPost] = useState();
+    let [currPost, setCurrPost] = useState(props.posts);
     let [pageCount, setPageCount] = useState(0);
     let [page, setPage] = useState(0);
     let [search, setSearch] = useState("");
@@ -66,4 +66,4 @@ const PostList = (props) => {
 
 }
 
-export default PostList;
+export default PostListV2;

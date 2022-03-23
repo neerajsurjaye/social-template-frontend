@@ -8,6 +8,7 @@ const Navbar = () => {
 
     let logOut = () => {
         setCurrentUser(null);
+        localStorage.setItem('Auth', null);
     }
 
     let userTab = () => {
@@ -37,6 +38,10 @@ const Navbar = () => {
 
         <Link to='/newpost'>
             Add new post +
+        </Link>
+
+        <Link to='/feed'>
+            Feed
         </Link>
 
     </div>

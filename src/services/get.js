@@ -1,9 +1,16 @@
 import URL from './url';
 
-let post = async (page, search, sort) => {
+let post = async (page, search, sort, user) => {
 
     // console.log({ page, search });
-    let res = await fetch(`${URL}/api/posts?page=${page}&search=${search}&sort=${sort}`)
+
+    let url = `${URL}/api/posts?page=${page}&search=${search}&sort=${sort}`;
+
+    if (user) {
+        url = `${URL}/api/posts?page=${page}&search=${search}&sort=${sort}&user=${user}`;
+    }
+
+    let res = await fetch(url);
     let posts = await res.json();
     return posts;
 
@@ -40,7 +47,11 @@ let getAllComments = async (id) => {
 
 }
 
+let userById = async (id) => {
+    let res = await fetch(`${URL}/api/users/${id}`);
+    return await res.json();
+}
 
 
-const module = { post, currentUser, getPostById, getAllComments };
+const module = { post, currentUser, getPostById, getAllComments, userById };
 export default module;

@@ -14,6 +14,8 @@ import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 import SinglePost from './components/SinglePost';
 import Home from './components/Home';
+import User from './components/User';
+import Feed from './components/Feed';
 
 function App() {
 
@@ -61,6 +63,8 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/newpost' element={<PostForm />} />
                     <Route path='/post/:id' element={<SinglePost />} />
+                    <Route path='/user/:id' element={<User />} />
+                    <Route path='/feed' element={<Feed />} />
 
                 </Routes>
 
