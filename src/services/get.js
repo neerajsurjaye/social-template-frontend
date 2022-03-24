@@ -52,6 +52,17 @@ let userById = async (id) => {
     return await res.json();
 }
 
+let postByFollow = async (search, sort, page, token) => {
 
-const module = { post, currentUser, getPostById, getAllComments, userById };
+    console.log(search, sort);
+    let res = await fetch(`${URL}/api/posts/feed?search=${search}&sort=${sort}&page=${page}`, {
+        headers: {
+            authorization: token
+        }
+    });
+    return await res.json();
+
+}
+
+const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow };
 export default module;
