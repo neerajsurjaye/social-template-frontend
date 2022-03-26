@@ -16,6 +16,7 @@ import SinglePost from './components/SinglePost';
 import Home from './components/Home';
 import User from './components/User';
 import Feed from './components/Feed';
+import SingleTag from './components/SingleTag';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
                     <Route path='/post/:id' element={<SinglePost />} />
                     <Route path='/user/:id' element={<User />} />
                     <Route path='/feed' element={<Feed />} />
-
+                    <Route path='/tag/:id' element={<SingleTag />} />
                 </Routes>
 
 

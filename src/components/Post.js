@@ -1,13 +1,16 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import post from "../services/post";
-
+import userContext from "../context/userContext";
+import httpDelete from "../services/httpDelete";
 
 const Post = (props) => {
 
     // console.log("Post", props.post, props.post);
     let [votes, setVotes] = useState(props?.post?.votes);
     let user = props?.post?.user;
+    let userCont = useContext(userContext)[0];
 
 
     let updateVotes = async (c) => {
@@ -29,9 +32,9 @@ const Post = (props) => {
 
 
         let tags = props.post.tag.map((x) => {
-            return <div className="tag-tag" key={x._id}>
+            return <Link className="tag-tag" key={x._id} to={`/tag/${x._id}`} >
                 {x.name};
-            </div>
+            </Link >
         })
 
 
@@ -42,6 +45,24 @@ const Post = (props) => {
         return <div className="post">
             Undef
         </div>
+    }
+
+
+
+    let canDeletePost = () => {
+        if (props.post.user._id == userCont?._id) {
+            return <div
+                className="delete-post btn"
+                onClick={async () => {
+                    //delete post
+                    let token = localStorage.getItem('Auth');
+                    // console.log(props.post._id);
+                    console.log(await httpDelete.detelePost(props.post._id, token));
+                }}>
+                Delete
+            </div>
+        }
+
     }
 
     // console.log({ props });
@@ -61,6 +82,8 @@ const Post = (props) => {
         <Link className="post-user" to={`/user/${user._id}`}>
             {user.username}
         </Link>
+
+        {canDeletePost()}
 
         <div className="votes">
             <div className="votes-inc" onClick={() => { updateVotes(1) }}>

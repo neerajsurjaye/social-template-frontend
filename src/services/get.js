@@ -64,5 +64,11 @@ let postByFollow = async (search, sort, page, token) => {
 
 }
 
-const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow };
+let singleTag = async (id, sort, page) => {
+    console.log(id, sort);
+    let res = await fetch(`${URL}/api/posts/tag?id=${id}&sort=${sort}&page=${page}`);
+    return await res.json();
+}
+
+const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow, singleTag };
 export default module;
