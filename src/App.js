@@ -17,6 +17,7 @@ import Home from './components/Home';
 import User from './components/User';
 import Feed from './components/Feed';
 import SingleTag from './components/SingleTag';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -59,7 +60,6 @@ function App() {
 
                 <Navbar />
                 <Routes>
-
                     <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/newpost' element={<PostForm />} />
@@ -69,6 +69,7 @@ function App() {
                     <Route path='/tag/:id' element={<SingleTag />} />
                 </Routes>
 
+                <Footer></Footer>
 
             </userContext.Provider>
         </Router >

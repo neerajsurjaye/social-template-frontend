@@ -12,13 +12,35 @@ code {
     monospace;
 }
 
+:root{
+  --dark : #121212;
+  --card : #242424;
+  --text-highlight : #fffc;
+  --primary : #327bf0;
+}
+
+body{
+  background-color: var(--dark);
+  color: var(--text-highlight);
+}
+
+body a{
+  color: var(--text-highlight);
+}
 
 /* temp */
 .post{
   border: 1px solid black;
   display: block;
-  /* background-color: red; */
-  color : black;
-  margin: 0;
+  background-color: var(--card);
+  margin-bottom: 16px;
   padding: 0;
+}
+
+
+/* //footer */
+.footer{
+  min-height: 50px;
+  /* background-color: var(--card); */
+  box-shadow: 0px 30px 80px var(--primary);
 }
