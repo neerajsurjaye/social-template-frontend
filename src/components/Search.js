@@ -13,7 +13,7 @@ let Search = (props) => {
     return <div className="div">
         <form>
             <input type="text" onChange={(e) => { setCurrSearch(e.target.value) }} value={currSearch} />
-            <input type='button' value='search' onClick={() => { setSearch(currSearch) }}></input>
+            <button value='Submit' onClick={(e) => { e.preventDefault(); setSearch(currSearch) }}>Search</button>
             <select name='cars' onChange={updateSort}>
                 <option>New</option>
                 <option>Top</option>

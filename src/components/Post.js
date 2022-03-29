@@ -33,7 +33,7 @@ const Post = (props) => {
 
         let tags = props.post.tag.map((x) => {
             return <Link className="tag-tag" key={x._id} to={`/tag/${x._id}`} >
-                {x.name};
+                {x.name}
             </Link >
         })
 
@@ -66,27 +66,28 @@ const Post = (props) => {
     }
 
     // console.log({ props });
-    return <Link to={`/post/${props.post._id}`} className="post" >
-
-        < div className="post-title" >
-            {props.post.title}
-        </div >
-        <div className="post-desc">
-            {props.post.text}
-        </div>
-        <li className="tag-list">
-            {genTags()}
-        </li>
-
+    return <div className="post" >
 
         <Link className="post-user" to={`/user/${user._id}`}>
-            {user.username}
+            user - {user.username}
         </Link>
 
-        {canDeletePost()}
+        <Link to={`/post/${props.post._id}`} className='post-main'>
+            < div className="post-title" >
+                {props.post.title}
+            </div >
+            <div className="post-desc">
+                {props.post.text}
+            </div>
+            <li className="tag-list">
+                {genTags()}
+            </li>
+        </Link>
+
+        {/* {canDeletePost()} */}
 
         <div className="votes">
-            <div className="votes-inc" onClick={() => { updateVotes(1) }}>
+            <div className="votes-inc btn" onClick={() => { updateVotes(1) }}>
                 ^
             </div>
 
@@ -94,11 +95,11 @@ const Post = (props) => {
                 {votes}
             </div>
 
-            <div className="votes-dec" onClick={() => { updateVotes(-1) }}>
+            <div className="votes-dec btn" onClick={() => { updateVotes(-1) }}>
                 V
             </div>
         </div>
-    </Link >
+    </div >
 
 }
 

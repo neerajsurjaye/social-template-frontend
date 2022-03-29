@@ -5,6 +5,7 @@ let post = async (page, search, sort, user) => {
     // console.log({ page, search });
 
     let url = `${URL}/api/posts?page=${page}&search=${search}&sort=${sort}`;
+    // console.log(url);
 
     if (user) {
         url = `${URL}/api/posts?page=${page}&search=${search}&sort=${sort}&user=${user}`;
