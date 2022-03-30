@@ -14,16 +14,20 @@ const Navbar = () => {
     let userTab = () => {
 
         if (currentUser) {
-            return <div className='nav-userdetails'>
-                user : {currentUser.username}
-                <div className="btn" onClick={logOut}>
+            return <div className='nav-details'>
+                <Link to={`user/${currentUser._id}`} className="nav-user">
+                    user : {currentUser.username}
+                </Link>
+                <div className="btn warn" onClick={logOut}>
                     Logout
                 </div>
             </div>
         } else {
-            return <Link to='/login'>
-                Login/Sign Up
-            </Link>
+            return <div className="nav-details">
+                <Link className='btn primary' to='/login'>
+                    Login/Sign Up
+                </Link>
+            </div>
         }
 
     }
@@ -35,15 +39,6 @@ const Navbar = () => {
 
 
         {userTab()}
-
-        <Link to='/newpost'>
-            Add new post +
-        </Link>
-
-        <Link to='/feed'>
-            Feed
-        </Link>
-
     </div>
 
 }

@@ -20,7 +20,7 @@ code {
   --hover : #363636;
   --text-highlight : #fffe;
   --text-primary : #fffc;
-  --primary : #42a5f5;
+  --primary : #2196f3;
   --err : #d32f2f;
   --success : #388e3c;
 }
@@ -43,12 +43,67 @@ body a{
   cursor: pointer;
   text-align: center;
   transition: all 0.1s;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  height: fit-content;
+  font-weight: bold;
+  /* color: white; */
 }
 
 .btn:hover{
-  filter: brightness(1.5);
-  background-color: var(--hover);
+  /* filter: saturate(120%); */
+  background-color: var(--dark-l4);
 }
+
+.primary{
+  background-color: var(--primary);
+}
+
+.warn{
+  background-color: var(--err);
+}
+
+.main{
+  margin-top: 56px;
+}
+
+/* navbar */
+.navbar{
+  display: flex;
+  background-color: var(--card);
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.nav-details{
+  display: flex;
+  margin-left: auto;
+  margin-right: 26px;
+  align-items: center;
+  /* align-self: flex-end; */
+}
+
+.nav-user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.logout{
+  background-color: var(--err);
+  height: fit-content;
+  align-self: center;
+  padding: 8px;
+}
+
 
 /* post */
 .post{
@@ -130,8 +185,9 @@ body a{
   /* position: static; */
   position: sticky;
   display: flex;
+  margin-top: 50px;
   justify-content: center;
-  top: 32px;
+  top: 70px;
 
 }
 
