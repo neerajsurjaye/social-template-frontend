@@ -4,20 +4,16 @@ let Search = (props) => {
 
     let [search, setSearch] = props.search;
     let [currSearch, setCurrSearch] = useState("");
-    let setSort = props.setSort;
+    // let setSort = props.setSort;
 
-    let updateSort = (e) => {
-        setSort(e.target.value);
-    }
+    // let updateSort = (e) => {
+    //     setSort(e.target.value);
+    // }
 
     return <div className="div">
-        <form>
-            <input type="text" onChange={(e) => { setCurrSearch(e.target.value) }} value={currSearch} />
-            <button value='Submit' onClick={(e) => { e.preventDefault(); setSearch(currSearch) }}>Search</button>
-            <select name='cars' onChange={updateSort}>
-                <option>New</option>
-                <option>Top</option>
-            </select>
+        <form className="home-nav-search">
+            <input type="text" className="fit-content" onChange={(e) => { setCurrSearch(e.target.value) }} value={currSearch} />
+            <button value='Submit' className="btn primary" onClick={(e) => { e.preventDefault(); setSearch(currSearch) }}>Search</button>
         </form>
     </div>
 

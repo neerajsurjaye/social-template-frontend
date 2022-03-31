@@ -6,34 +6,8 @@ import PageCounter from './PageCounter';
 import PostList from './PostList';
 import PostListV2 from './PostListV2';
 import Search from './Search';
-
-const HomeNav = (props) => {
-
-    let [search, setSearch] = props.search;
-    let setSort = props.sort;
-
-    return <div className="home-nav">
-        <div className="home-nav-follow">
-            <div className="home-nav-card">
-
-                <Search search={[search, setSearch]} setSort={setSort}></Search>
-
-                <Link to='/' className='home-nav-button btn'>
-                    Home
-                </Link>
-
-                <Link to='/feed' className='home-nav-button btn'>
-                    Feed
-                </Link>
-
-                <Link to='/newpost' className='home-nav-button btn'>
-                    Add new post +
-                </Link>
-
-            </div>
-        </div>
-    </div>
-}
+import SortBar from './SortBar';
+import Nav from './Nav';
 
 const Home = () => {
 
@@ -59,10 +33,11 @@ const Home = () => {
 
     return <div className='home'>
 
-        <HomeNav search={[search, setSearch]} sort={setSort}></HomeNav>
+        <Nav search={[search, setSearch]} ></Nav>
 
         {/* <PostList></PostList> */}
         <div className="home-post">
+            <SortBar sort={setSort}></SortBar>
             <PostListV2 currPost={currPost}></PostListV2>
             <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
         </div>

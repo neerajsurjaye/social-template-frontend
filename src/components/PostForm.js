@@ -40,17 +40,27 @@ const PostForm = () => {
 
 
     return <div className="post-form">
-        <form>
-            <label htmlFor="title">Title</label>
-            <input type="text" className="inp" id="title" value={title} onChange={updateTitle} />
-            <label htmlFor="title">Text</label>
-            <textarea type="text" className="inp" id="text" value={text} onChange={updateText} />
-            <label htmlFor="tag">Tag</label>
-            <input type="text" className="inp" id="tag" value={tag} onChange={updateTag} />
-            <input type="button" className="btn" value="submit" onClick={uploadPost} />
 
-        </form>
-    </div>
+        <form className="post-form-form">
+            <h2>Add new Post</h2>
+            <div className="form-row">
+                <label htmlFor="title">Title</label>
+                <input type="text" className="inp" id="title" value={title} onChange={updateTitle} />
+            </div>
+            <div className="form-row">
+                <label htmlFor="title">Text</label>
+                <textarea type="text" className="inp" id="text" value={text} onChange={updateText} />
+            </div>
+            <div className="form-row">
+                <label htmlFor="tag">Tag</label>
+                <input type="text" className="inp" id="tag" value={tag} onChange={updateTag} />
+            </div>
+            <div className="form-row">
+                <input type="button" className="btn primary" value="submit" onClick={uploadPost} />
+            </div>
+
+        </form >
+    </div >
 
 }
 

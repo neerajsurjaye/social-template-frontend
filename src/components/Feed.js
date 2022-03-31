@@ -4,6 +4,8 @@ import Search from "./Search";
 import PageCounter from './PageCounter';
 import { useEffect } from "react";
 import get from '../services/get';
+import Nav from "./Nav";
+import SortBar from "./SortBar";
 
 let Feed = () => {
 
@@ -26,11 +28,28 @@ let Feed = () => {
         updatePosts();
     }, [search, sort, page])
 
-    return <div className="feed">
-        Feed
-        <Search search={[search, setSearch]} setSort={setSort}></Search>
-        <PostListV2 currPost={currPost}></PostListV2>
-        <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+    // return <div className="feed">
+    //     Feed
+    //     <Search search={[search, setSearch]} setSort={setSort}></Search>
+    //     <PostListV2 currPost={currPost}></PostListV2>
+    //     <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+    // </div>
+
+    return <div className='home'>
+
+        <Nav search={[search, setSearch]} ></Nav>
+
+        {/* <PostList></PostList> */}
+        <div className="home-post">
+            <SortBar sort={setSort}></SortBar>
+            <PostListV2 currPost={currPost}></PostListV2>
+            <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+        </div>
+
+        <div className="nav">
+
+        </div>
+
     </div>
 }
 
