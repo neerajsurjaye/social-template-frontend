@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import post from "../services/post";
 import userContext from "../context/userContext";
 import httpDelete from "../services/httpDelete";
+import { FaArrowUp, FaArrowDown, FaCommentAlt } from 'react-icons/fa';
+
 
 const Post = (props) => {
 
@@ -11,7 +13,9 @@ const Post = (props) => {
     let [votes, setVotes] = useState(props?.post?.votes);
     let user = props?.post?.user;
     let userCont = useContext(userContext)[0];
-
+    let count = props?.post?.comments?.length;
+    count = count ? count : -1;
+    // console.log(props.post);
 
     let updateVotes = async (c) => {
 
@@ -86,19 +90,22 @@ const Post = (props) => {
 
         {/* {canDeletePost()} */}
 
-        <div className="votes">
-            <div className="votes-inc btn" onClick={() => { updateVotes(1) }}>
-                ^
-            </div>
+        <div className="post-bottom">
+            <div className="votes">
+                <div className="votes-btn btn" onClick={() => { updateVotes(1) }}>
+                    <FaArrowUp></FaArrowUp>
+                </div>
 
-            <div className="votes-count">
-                {votes}
-            </div>
+                <div className="votes-count">
+                    {votes}
+                </div>
 
-            <div className="votes-dec btn" onClick={() => { updateVotes(-1) }}>
-                V
+                <div className="votes-btn btn" onClick={() => { updateVotes(-1) }}>
+                    <FaArrowDown></FaArrowDown>
+                </div>
             </div>
         </div>
+
     </div >
 
 }

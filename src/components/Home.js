@@ -28,6 +28,7 @@ const Home = () => {
     }
 
     useEffect(() => {
+        setCurrPost(null);
         updatePosts();
     }, [search, sort, page])
 

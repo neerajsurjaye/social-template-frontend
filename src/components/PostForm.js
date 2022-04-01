@@ -1,5 +1,6 @@
 import { useState } from "react";
 import post from '../services/post';
+import GoBack from "./GoBack";
 const PostForm = () => {
 
     let [title, setTitle] = useState("");
@@ -40,7 +41,7 @@ const PostForm = () => {
 
 
     return <div className="post-form">
-
+        <GoBack></GoBack>
         <form className="post-form-form">
             <h2>Add new Post</h2>
             <div className="form-row">
@@ -53,7 +54,7 @@ const PostForm = () => {
             </div>
             <div className="form-row">
                 <label htmlFor="tag">Tag</label>
-                <input type="text" className="inp" id="tag" value={tag} onChange={updateTag} />
+                <input type="text" placeholder="Add space seprated tags eg : 'tag1 tag2 tag3'" className="inp" id="tag" value={tag} onChange={updateTag} />
             </div>
             <div className="form-row">
                 <input type="button" className="btn primary" value="submit" onClick={uploadPost} />

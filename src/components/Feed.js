@@ -25,6 +25,7 @@ let Feed = () => {
     }
 
     useEffect(() => {
+        setCurrPost(null);
         updatePosts();
     }, [search, sort, page])
 

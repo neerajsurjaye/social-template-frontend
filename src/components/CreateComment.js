@@ -31,7 +31,7 @@ let CreateComment = (props) => {
 
             <label htmlFor="comment-inp">Add Comment</label>
             <textarea type="text" id="comment-inp" className="inp" value={comment} onChange={updateComment} />
-            <input type="button" value='Submit' onClick={uploadComment}></input>
+            <input type="button" className="primary btn" value='Add comment' onClick={uploadComment}></input>
 
         </div>
     </div>

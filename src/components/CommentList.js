@@ -47,10 +47,13 @@ let CommentList = (props) => {
         </div>
     }
 
-    return <div className="commentList">
+    return <>
         <CreateComment setComments={setComments} id={id}></CreateComment>
-        {generateList()}
-    </div>
+        <div className="comment-list">
+            {generateList()}
+        </div>
+    </>
+
 }
 
 export default CommentList;

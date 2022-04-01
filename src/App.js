@@ -62,11 +62,11 @@ function App() {
                 <div className="main">
                     <Routes>
                         <Route path='/' element={<Home />} />
+                        <Route path='/feed' element={<Feed />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/newpost' element={<PostForm />} />
                         <Route path='/post/:id' element={<SinglePost />} />
                         <Route path='/user/:id' element={<User />} />
-                        <Route path='/feed' element={<Feed />} />
                         <Route path='/tag/:id' element={<SingleTag />} />
                     </Routes>
                 </div>

@@ -73,6 +73,10 @@ button, input, textarea{
   background-color: var(--dark-l4);
 }
 
+.inp{
+  padding: 8px;
+}
+
 .primary{
   background-color: var(--primary);
 }
@@ -83,6 +87,12 @@ button, input, textarea{
 
 .main{
   margin-top: 56px;
+}
+
+.go-back{
+  background-color: var(--card);
+  margin: 8px;
+  width: fit-content;
 }
 
 /* navbar */
@@ -191,8 +201,24 @@ button, input, textarea{
 }
 
 .votes{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  align-items: center;
+}
+
+.post-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* post list */
+.post-list-loading{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: var(--primary); */
+  /* background-color: var(--primary); */
 }
 
 
@@ -251,8 +277,9 @@ button, input, textarea{
 .post-form{
   height: 100vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+  padding-top: 100px;
 }
 
 .post-form-form{
@@ -260,6 +287,7 @@ button, input, textarea{
   background-color: var(--card);
   padding: 16px 32px;
   border-radius: 4px;
+  width: 40%;
 }
 
 .form-row{
@@ -276,6 +304,50 @@ button, input, textarea{
   display: inline-block;
   width: 100px;
 }
+
+.post-form .inp{
+  width: 100%;
+}
+
+.single-post-cont{
+  min-height: 100vh;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.single-post{
+  width: 50%;
+  margin-top: 60px;
+}
+
+/* comment */
+.create-comment{
+  background-color: var(--card);
+  border-radius: 4px;
+}
+
+.comment-form{
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-list{
+  background-color: var(--card);
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.comment{
+  background-color: var(--dark-l3);
+  margin-top: 8px;
+  min-height: 32px;
+  padding: 8px;
+}
+
+
 
 /* //footer */
 .footer{

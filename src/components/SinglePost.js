@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { PropagateLoader } from "react-spinners";
 import get from '../services/get';
 import CommentList from "./CommentList";
 import CreateComment from "./CreateComment";
+import GoBack from "./GoBack";
 import Post from './Post';
 
 let SinglePost = () => {
@@ -27,14 +29,19 @@ let SinglePost = () => {
 
 
     if (!post) {
-        return <div className="loading">
-            Loading
+        return <div className="post-list-loading">
+            <PropagateLoader color='#367BF0'></PropagateLoader>
+            {/* <CircleLoader color='#367BF0'></CircleLoader> */}
         </div>
     }
 
-    return <div className="singlepost">
-        <Post post={post}></Post>
-        <CommentList id={id}></CommentList>
+    return <div className="single-post-cont">
+
+        <div className="single-post">
+            <GoBack></GoBack>
+            <Post post={post}></Post>
+            <CommentList id={id}></CommentList>
+        </div>
     </div>
 }
 
