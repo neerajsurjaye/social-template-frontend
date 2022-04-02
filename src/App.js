@@ -18,6 +18,7 @@ import User from './components/User';
 import Feed from './components/Feed';
 import SingleTag from './components/SingleTag';
 import Footer from './components/Footer';
+import BottomNav from './components/BottomNav';
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
                     </Routes>
                 </div>
 
+                <BottomNav></BottomNav>
                 <Footer></Footer>
 
             </userContext.Provider>
