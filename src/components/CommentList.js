@@ -50,6 +50,7 @@ let CommentList = (props) => {
     return <>
         <CreateComment setComments={setComments} id={id}></CreateComment>
         <div className="comment-list">
+            Comment's
             {generateList()}
         </div>
     </>
