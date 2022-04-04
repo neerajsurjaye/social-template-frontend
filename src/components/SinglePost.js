@@ -6,6 +6,7 @@ import get from '../services/get';
 import CommentList from "./CommentList";
 import CreateComment from "./CreateComment";
 import GoBack from "./GoBack";
+import Nav from "./Nav";
 import Post from './Post';
 
 let SinglePost = () => {
@@ -35,7 +36,9 @@ let SinglePost = () => {
         </div>
     }
 
-    return <div className="single-post-cont">
+    return <div className="post-page">
+
+        <Nav></Nav>
 
         <div className="single-post">
             <GoBack></GoBack>

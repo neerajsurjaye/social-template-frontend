@@ -38,6 +38,7 @@ const Home = () => {
 
         {/* <PostList></PostList> */}
         <div className="home-post">
+            <Search search={[search, setSearch]} className='mobile-search'></Search>
             <SortBar sort={setSort}></SortBar>
             <PostListV2 currPost={currPost}></PostListV2>
             <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>

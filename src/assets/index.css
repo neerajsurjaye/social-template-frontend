@@ -118,6 +118,8 @@ button, input, textarea{
   color: var(--text-primary);
 }
 
+
+
 /* navbar */
 .navbar{
   display: flex;
@@ -161,6 +163,11 @@ button, input, textarea{
   border-radius: 4px;
 }
 
+/* search bar */
+.mobile-search{
+  display: none;  
+}
+
 .selected{
   background-color: var(--dark-l3);
 }
@@ -188,6 +195,7 @@ button, input, textarea{
 
 .post-main{
   height: 100%;
+  grid-column-start: 2;
 }
 
 .post-title{
@@ -249,7 +257,7 @@ button, input, textarea{
 
 
 /* home */
-.home{
+.home, .post-page{
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   transition: all 0.2s;
@@ -344,8 +352,9 @@ button, input, textarea{
 }
 
 .single-post{
-  width: 50%;
+  width: 100%;
   margin-top: 60px;
+  grid-column-start: 2;
 }
 
 /* comment */
@@ -439,6 +448,7 @@ button, input, textarea{
 
 
 
+
 /* //footer */
 .footer{
   min-height: 50px;
@@ -450,8 +460,12 @@ button, input, textarea{
 @media(max-width:1200px){
 
   
-  .home{
-    grid-template-columns: 3fr 8fr 1fr;
+  .home , .post-page{
+    grid-template-columns: 4fr 8fr 1fr;
+  }
+
+  .post-form-form{
+    width: 60%;
   }
 
 }
@@ -460,7 +474,7 @@ button, input, textarea{
 @media(max-width:900px){
 
   
-  .home{
+  .home, .post-page{
     grid-template-columns: 1fr 6fr 1fr;
   }
 
@@ -468,7 +482,7 @@ button, input, textarea{
     display: none;
   }
 
-  .home-post{
+  .home-post , .post-main{
     grid-column-start: 2;
   }
 
@@ -476,13 +490,35 @@ button, input, textarea{
     display: grid;
   }
 
+  .mobile-search{
+    display: block;
+    background-color: var(--card);
+    padding: 8px;
+    margin-top: 16px;
+    border-radius: 4px;
+  }
+
+  .post-form{
+   flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .post-form-form{
+    width: 80%;
+  }
+
 }
 
 @media(max-width:700px){
 
   
-  .home{
+  .home, .post-page{
     grid-template-columns: 1fr 12fr 1fr;
+  }
+
+  .post-form-form{
+    width: 90%;
   }
 
 

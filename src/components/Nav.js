@@ -4,14 +4,23 @@ import Search from './Search';
 
 const Nav = (props) => {
 
-    let [search, setSearch] = props.search;
+    let search = null;
+    let setSearch = null;
+    if (props.search) {
+        // [search, setSearch] = props.search;
+        search = props.search[0];
+        setSearch = props.search[1];
+    }
 
+
+    console.log(search);
 
     return <div className="home-nav">
         <div className="home-nav-follow">
             <div className="home-nav-card">
 
-                <Search search={[search, setSearch]} ></Search>
+                {props.search ? <Search search={[search, setSearch]} ></Search> : <></>}
+
 
                 <Link to='/' className='home-nav-button btn'>
                     Home

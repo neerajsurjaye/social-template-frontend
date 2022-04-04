@@ -20,8 +20,17 @@ const PostForm = () => {
         setTag(e.target.value);
     }
 
-    let uploadPost = async () => {
+    let uploadPost = async (e) => {
         // console.log({ title, tag, text });
+        e.preventDefault();
+
+        // console.log(e.reportValidity());
+        if (!title || !text) {
+
+            console.log("title text cannot be emtpy");
+            return;
+        }
+
         let currPost = {};
 
         currPost.title = title;
@@ -46,18 +55,18 @@ const PostForm = () => {
             <h2>Add new Post</h2>
             <div className="form-row">
                 <label htmlFor="title">Title</label>
-                <input type="text" className="inp" id="title" value={title} onChange={updateTitle} />
+                <input type="text" className="inp" id="title" value={title} onChange={updateTitle} required='required' />
             </div>
             <div className="form-row">
                 <label htmlFor="title">Text</label>
-                <textarea type="text" className="inp" id="text" value={text} onChange={updateText} />
+                <textarea type="text" className="inp" id="text" value={text} onChange={updateText} required='required' />
             </div>
             <div className="form-row">
                 <label htmlFor="tag">Tag</label>
                 <input type="text" placeholder="Add space seprated tags eg : 'tag1 tag2 tag3'" className="inp" id="tag" value={tag} onChange={updateTag} />
             </div>
             <div className="form-row">
-                <input type="button" className="btn primary" value="submit" onClick={uploadPost} />
+                <button className="btn primary" onClick={uploadPost} >Submit</button>
             </div>
 
         </form >
