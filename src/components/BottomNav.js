@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { AiFillFilter, AiFillHome } from 'react-icons/ai';
-import { IoAddCircleOutline } from 'react-icons/io5';
+import { IoIosAddCircle } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import { BsFillSignpostSplitFill } from 'react-icons/bs';
+
 
 let BottomNav = () => {
 
@@ -11,7 +13,8 @@ let BottomNav = () => {
         //component, name , display name , active , loc
         [<AiFillHome />, "Home", '', 'active', '/'],
         [<AiFillFilter />, "Feed", 'none', '', 'feed'],
-        [<IoAddCircleOutline />, "AddPost", 'none', '', 'newpost'],
+        [<BsFillSignpostSplitFill />, "Recommended", 'none', '', 'recommended'],
+        [<IoIosAddCircle />, "AddPost", 'none', '', 'newpost'],
     ]);
 
     let updateButtons = (n) => {

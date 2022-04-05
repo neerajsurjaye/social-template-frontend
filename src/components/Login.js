@@ -10,7 +10,7 @@ const Login = () => {
     let [isSignUp, setIsSignUp] = useState(false);
     let [userName, setUserName] = useState("");
     let [password, setPassword] = useState("");
-
+    let [color, setColor] = useState(['', 'primary']);
     let [currentUser, setCurrentUser] = useContext(userContext);
 
     let handleUserName = (e) => {
@@ -36,6 +36,7 @@ const Login = () => {
         if (res.success) {
             localStorage.setItem('Auth', res.success);
             setCurrentUser(res.success);
+
         } else {
             localStorage.setItem('Auth', null);
         }
@@ -54,34 +55,55 @@ const Login = () => {
 
     useEffect(() => {
 
-    }, [])
+        console.log({ isSignUp });
 
-    return <div className="login">
+        if (isSignUp) {
+            setColor(['primary', '']);
+        } else {
+            setColor(['', 'primary']);
+        }
 
-        <input
-            type="button"
-            className="sign-up-button btn"
-            onClick={() => {
-                setSignUp(true);
-            }}
-            value="sign-up"
-        />
-        <input
-            type="button"
-            className="log-in-button btn"
-            onClick={() => {
-                setSignUp(false);
-            }}
-            value="log-in"
-        />
 
-        <form>
-            <label htmlFor="username">Username</label>
-            <input id="username" type="text" onChange={handleUserName} />
-            <label htmlFor="password">Password</label>
-            <input id="password" type="text" onChange={handlePassword} />
-            <input className="btn" type="button" value="Submit" onClick={uploadDetails}></input>
-        </form>
+    }, [isSignUp])
+
+    return <div className="login-container">
+
+        <div className="login-form-cont">
+
+            <div className="login-top-btn">
+                <input
+                    type="button"
+                    className={`log-in-button btn ${color[0]}`}
+                    onClick={() => {
+                        setSignUp(true);
+                    }}
+                    value="sign-up"
+                />
+                <input
+                    type="button"
+                    className={`log-in-button btn ${color[1]}`}
+                    onClick={() => {
+                        setSignUp(false);
+                    }}
+                    value="log-in"
+                />
+
+            </div>
+
+            <form className="login-form">
+                <div className="form-row">
+                    <label htmlFor="username">Username</label>
+                    <input className="inp" id="username" type="text" onChange={handleUserName} />
+                </div>
+                <div className="form-row">
+                    <label htmlFor="password">Password</label>
+                    <input className="inp" id="password" type="text" onChange={handlePassword} />
+                </div>
+                <input className="btn primary" type="button" value="Submit" onClick={uploadDetails}></input>
+
+            </form>
+
+        </div>
 
 
     </div>

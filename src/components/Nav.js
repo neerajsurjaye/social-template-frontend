@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import Search from './Search';
 
+import { AiFillFilter, AiFillHome } from 'react-icons/ai';
+import { IoIosAddCircle } from 'react-icons/io';
+import { BsFillSignpostSplitFill } from 'react-icons/bs';
 
 const Nav = (props) => {
 
@@ -23,15 +26,19 @@ const Nav = (props) => {
 
 
                 <Link to='/' className='home-nav-button btn'>
-                    Home
+                    <AiFillHome className='home-nav-icon'></AiFillHome> Home
                 </Link>
 
                 <Link to='/feed' className='home-nav-button btn'>
-                    Feed
+                    <AiFillFilter className='home-nav-icon'></AiFillFilter> Feed
+                </Link>
+
+                <Link to='/recommended' className='home-nav-button btn'>
+                    <BsFillSignpostSplitFill className='home-nav-icon'></BsFillSignpostSplitFill> Recommended
                 </Link>
 
                 <Link to='/newpost' className='home-nav-button btn'>
-                    Add new post +
+                    <IoIosAddCircle className='home-nav-icon'></IoIosAddCircle > Add new post +
                 </Link>
 
             </div>

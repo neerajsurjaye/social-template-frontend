@@ -8,6 +8,7 @@ import PostListV2 from './PostListV2';
 import Search from './Search';
 import SortBar from './SortBar';
 import Nav from './Nav';
+import CurrPage from './CurrPage';
 
 const Home = () => {
 
@@ -34,10 +35,12 @@ const Home = () => {
 
     return <div className='home'>
 
+
         <Nav search={[search, setSearch]} ></Nav>
 
         {/* <PostList></PostList> */}
         <div className="home-post">
+            <CurrPage name='Home'></CurrPage>
             <Search search={[search, setSearch]} className='mobile-search'></Search>
             <SortBar sort={setSort}></SortBar>
             <PostListV2 currPost={currPost}></PostListV2>

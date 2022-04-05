@@ -1,11 +1,18 @@
+import { useContext } from "react";
 import { useState } from "react";
+import userContext from "../context/userContext";
 import post from '../services/post';
+import Error from "./Error";
 import GoBack from "./GoBack";
+import Success from "./Success";
 const PostForm = () => {
 
     let [title, setTitle] = useState("");
     let [text, setText] = useState("");
     let [tag, setTag] = useState("");
+    let [success, setSuccess] = useState(null);
+    let [error, setError] = useState(null);
+    let [user, setUser] = useContext(userContext);
 
     let updateTitle = (e) => {
         let currTitle = e.target.value;
@@ -44,8 +51,31 @@ const PostForm = () => {
 
         let res = await post.uploadPost(currPost, token);
 
-        console.log(res);
+        // console.log(res);
 
+        if (res.success) {
+            setSuccess(res.success);
+        }
+        if (res.err) {
+            setError(res.err);
+        }
+
+    }
+
+    if (!user) {
+        return <div className="post-alert-holder">
+            <Error message={"Not logged in"}></Error>
+        </div>
+    }
+
+    if (success) {
+        return <div className="post-alert-holder">
+            <Success message={success}></Success>
+        </div>
+    }
+
+    if (error) {
+        return <Error message={error}></Error>
     }
 
 
