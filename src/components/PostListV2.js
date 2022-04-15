@@ -4,11 +4,14 @@ import get from '../services/get';
 import Post from '../components/Post';
 import PageCounter from './PageCounter';
 import Search from './Search';
-import { CircleLoader, PropagateLoader } from 'react-spinners';
+import { BarLoader, CircleLoader, PropagateLoader } from 'react-spinners';
 
 const PostListV2 = (props) => {
 
     let currPost = props.currPost;
+
+    window.scrollTo(0, 0);
+
 
     let genList = () => {
         if (!currPost) {
@@ -29,7 +32,7 @@ const PostListV2 = (props) => {
 
     if (currPost == null) {
         return <div className="post-list-loading">
-            <PropagateLoader color='#367BF0'></PropagateLoader>
+            <BarLoader color='#367BF0'></BarLoader>
             {/* <CircleLoader color='#367BF0'></CircleLoader> */}
         </div>
     }

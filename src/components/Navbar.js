@@ -13,6 +13,8 @@ const Navbar = () => {
 
     let userTab = () => {
 
+        // console.log({ currentUser });
+
         if (currentUser) {
             return <div className='nav-details'>
                 <Link to={`user/${currentUser._id}`} className="nav-user">

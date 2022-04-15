@@ -8,6 +8,7 @@ import get from '../services/get';
 import PageCounter from "./PageCounter";
 import SortBar from "./SortBar";
 import Nav from "./Nav";
+import CurrPage from "./CurrPage";
 
 let User = () => {
 
@@ -46,6 +47,7 @@ let User = () => {
 
 
         <div className="home-post post-main">
+            {/* <CurrPage name={`user - ${id}`}></CurrPage> */}
             <UserCard id={id}></UserCard>
             <SortBar sort={setSort}></SortBar>
             <PostListV2 currPost={currPost}></PostListV2>

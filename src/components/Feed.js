@@ -7,6 +7,9 @@ import get from '../services/get';
 import Nav from "./Nav";
 import SortBar from "./SortBar";
 import CurrPage from "./CurrPage";
+import { useContext } from "react";
+import userContext from "../context/userContext";
+import Error from "./Error";
 
 let Feed = () => {
 
@@ -15,6 +18,8 @@ let Feed = () => {
     let [sort, setSort] = useState("new");
     let [page, setPage] = useState(0);
     let [pageCount, setPageCount] = useState(0);
+
+    let [user, setUser] = useContext(userContext);
 
     let updatePosts = async () => {
         let token = localStorage.getItem('Auth');
@@ -26,6 +31,8 @@ let Feed = () => {
     }
 
     useEffect(() => {
+
+
         setCurrPost(null);
         updatePosts();
     }, [search, sort, page])
@@ -44,10 +51,20 @@ let Feed = () => {
         {/* <PostList></PostList> */}
         <div className="home-post">
             <CurrPage name='Feed'></CurrPage>
-            <Search search={[search, setSearch]} className='mobile-search'></Search>
-            <SortBar sort={setSort}></SortBar>
-            <PostListV2 currPost={currPost}></PostListV2>
-            <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+
+            {user ?
+
+                <>
+                    <Search search={[search, setSearch]} className='mobile-search'></Search>
+                    <SortBar sort={setSort}></SortBar>
+                    <PostListV2 currPost={currPost}></PostListV2>
+                    <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
+                </>
+                :
+                <Error message="Not logged in"></Error>
+            }
+
+
         </div>
 
         <div className="nav">
