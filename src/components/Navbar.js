@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import userContext from '../context/userContext';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
+// import mainlogo from '../assets/MainLogo.png';
 
 const Navbar = () => {
 
@@ -35,8 +37,8 @@ const Navbar = () => {
     }
 
     return <div className="navbar">
-        <Link to='/'>
-            Social Template
+        <Link to='/' className='logo-link'>
+            <Logo></Logo>
         </Link>
 
 

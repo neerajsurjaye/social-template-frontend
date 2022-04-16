@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 let Footer = () => {
 
     return <div className="footer">
         <div className="footer-logo">
 
-            Social-Template
+            <Logo></Logo>
 
         </div>
         <div className="footer-sitemap">

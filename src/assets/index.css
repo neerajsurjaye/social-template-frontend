@@ -111,6 +111,13 @@ textarea {
   padding: 8px;
 }
 
+textarea {
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
 .primary {
   background-color: var(--primary);
 }
@@ -139,7 +146,16 @@ textarea {
   color: var(--text-primary);
 }
 
+.heading {
+  font-size: 1.2rem;
+  margin: 8px 4px;
+  color: var(--text-primary);
+}
 
+.logo {
+  width: 180px;
+  margin-left: 26px;
+}
 
 .curr-page {
   width: 100%;
@@ -236,6 +252,12 @@ textarea {
   height: fit-content;
   align-self: center;
   padding: 8px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* sortbar */
@@ -705,6 +727,8 @@ textarea {
     width: 90%;
   }
 
+
+
 }
 
 @media(max-width:700px) {
@@ -719,6 +743,10 @@ textarea {
     width: 90%;
   }
 
+  .logo {
+    width: 120px;
+    margin-left: 26px;
+  }
 
 
 }
