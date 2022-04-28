@@ -22,7 +22,7 @@ const Home = () => {
     let updatePosts = async () => {
         let res = await get.post(page, search, sort);
         if (res.success) {
-            // console.log(res.success);
+            console.log(res.success);
             setCurrPost(res.success.posts);
             setPageCount(res.success.count);
         }

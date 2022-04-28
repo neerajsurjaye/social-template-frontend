@@ -42,7 +42,7 @@ let SinglePost = () => {
 
         <div className="single-post">
             <GoBack></GoBack>
-            <Post post={post}></Post>
+            <Post post={post} single={true}></Post>
             <CommentList id={id}></CommentList>
         </div>
     </div>

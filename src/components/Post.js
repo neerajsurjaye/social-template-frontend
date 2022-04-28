@@ -80,7 +80,7 @@ const Post = (props) => {
             < div className="post-title" >
                 {props.post.title}
             </div >
-            <div className="post-desc">
+            <div className={`post-desc ${props.single ? 'post-desc-single' : ''}`}>
                 {props.post.text}
             </div>
             <li className="tag-list">

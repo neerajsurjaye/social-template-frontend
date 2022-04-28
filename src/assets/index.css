@@ -319,6 +319,10 @@ textarea {
   overflow: hidden;
 }
 
+.post-desc-single {
+  max-height: unset;
+}
+
 .post-user {
   font-size: 0.8rem;
 }
