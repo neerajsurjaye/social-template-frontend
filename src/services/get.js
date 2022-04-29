@@ -71,5 +71,15 @@ let singleTag = async (id, sort, page) => {
     return await res.json();
 }
 
-const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow, singleTag };
+let reccomended = async (sort, page, token) => {
+
+    let res = await fetch(`${URL}/api/posts/recc?sort=${sort}&page=${page}`, {
+        headers: {
+            authorization: token
+        }
+    });
+    return await res.json();
+}
+
+const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow, singleTag, reccomended };
 export default module;

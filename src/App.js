@@ -19,6 +19,7 @@ import Feed from './components/Feed';
 import SingleTag from './components/SingleTag';
 import Footer from './components/Footer';
 import BottomNav from './components/BottomNav';
+import Reccomendation from './components/Reccomendation';
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
                         <Route path='/post/:id' element={<SinglePost />} />
                         <Route path='/user/:id' element={<User />} />
                         <Route path='/tag/:id' element={<SingleTag />} />
+                        <Route path='/recommended' element={<Reccomendation />} />
                     </Routes>
                 </div>
 

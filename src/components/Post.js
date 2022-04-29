@@ -23,7 +23,8 @@ const Post = (props) => {
         let dec = c === 1 ? false : true;
         let token = localStorage.getItem('Auth');
 
-        // console.log({ dec });
+        console.log({ dec });
+        // console.log();
         let res = await post.updateVotes(id, dec, token);
 
         if (res.success) {
