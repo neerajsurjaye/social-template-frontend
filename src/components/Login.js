@@ -4,6 +4,8 @@ import get from '../services/get';
 import userContext from "../context/userContext";
 import { useContext } from "react";
 import { useEffect } from "react";
+import Success from './Success';
+import Error from "./Error";
 
 const Login = () => {
 
@@ -12,6 +14,7 @@ const Login = () => {
     let [password, setPassword] = useState("");
     let [color, setColor] = useState(['', 'primary']);
     let [currentUser, setCurrentUser] = useContext(userContext);
+    let [modal, setModal] = useState(false);
 
     let handleUserName = (e) => {
         // console.log(e.target.value);
@@ -27,18 +30,33 @@ const Login = () => {
     }
 
     let signUp = async () => {
-        console.log(await post.signUp(userName, password));
+        let res = (await post.signUp(userName, password));
+        if (res.success) {
+            setModal({
+                success: res.success
+            })
+        } else {
+            setModal({
+                err: res.err
+            })
+        }
+
     }
 
     let login = async () => {
         let res = await post.login(userName, password);
-        // console.log(res);
+        console.log(res);
         if (res.success) {
             localStorage.setItem('Auth', res.success);
             setCurrentUser(res.user);
-
+            setModal({
+                success: res.success
+            })
         } else {
             localStorage.setItem('Auth', null);
+            setModal({
+                err: res.err
+            })
         }
 
     }
@@ -65,6 +83,21 @@ const Login = () => {
 
 
     }, [isSignUp])
+
+    console.log({ modal });
+    if (modal) {
+
+        if (modal.success) {
+            return <div className="post-alert-holder">
+                <Success message={"Succesfully Signed in"}></Success>
+            </div>
+        } else if (modal.err) {
+            return <div className="post-alert-holder">
+                <Error message={modal.err}></Error>
+            </div >
+        }
+
+    }
 
     return <div className="login-container">
 

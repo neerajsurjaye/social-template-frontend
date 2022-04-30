@@ -12,8 +12,9 @@ const Success = (props) => {
             {props.message}
         </div>
 
-        <Link to='/' className='alert-link'>Home</Link>
-
+        <div className="btn">
+            <Link to='/' className='alert-link'>Home</Link>
+        </div>
 
     </div>
 }

@@ -48,17 +48,15 @@ const Reccomendation = () => {
 
     return <div className='home'>
 
-        <Nav search={[search, setSearch]} ></Nav>
+        <Nav ></Nav>
 
         {/* <PostList></PostList> */}
         <div className="home-post">
-            <CurrPage name='Feed'></CurrPage>
+            <CurrPage name='Reccomendations - Based on your activity'></CurrPage>
 
             {user ?
 
                 <>
-                    <Search search={[search, setSearch]} className='mobile-search'></Search>
-                    <SortBar sort={setSort}></SortBar>
                     <PostListV2 currPost={currPost}></PostListV2>
                     <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>
                 </>

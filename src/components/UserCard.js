@@ -37,11 +37,11 @@ let UserCard = (props) => {
 
     console.log(currUser.likes);
 
-    return <CurrPage name={`user - ${currUser.username}`}></CurrPage>
+    // return
 
 
     return < div className="user-card" >
-        <h3>User : {currUser.username}</h3>
+        <CurrPage name={`user - ${currUser.username}`}></CurrPage>
         <div className="follow btn" onClick={followUser}>
             Follow
         </div>

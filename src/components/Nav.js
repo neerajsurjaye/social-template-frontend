@@ -16,7 +16,7 @@ const Nav = (props) => {
     }
 
 
-    console.log(search);
+    // console.log(search);
 
     return <div className="home-nav">
         <div className="home-nav-follow">

@@ -161,6 +161,7 @@ textarea {
   width: 100%;
   border-radius: 4px;
   background-color: var(--card);
+  color: var(--text-highlight);
   margin-top: 16px;
   padding: 8px;
   font-weight: 700;
@@ -228,6 +229,7 @@ textarea {
   width: 100%;
   position: fixed;
   top: 0;
+  box-shadow: 0px 4px 16px var(--dark);
 }
 
 .nav-details {
@@ -288,11 +290,14 @@ textarea {
   border-radius: 4px;
   padding: 8px 16px;
   min-height: 150px;
+  /* box-shadow: 4px 4px 16px black; */
   /* max-height: 250px; */
 }
 
 .post:hover {
   background-color: var(--hover);
+  /* box-shadow: 4px 4px 16px black; */
+
 }
 
 .post a {
@@ -363,6 +368,11 @@ textarea {
   justify-content: center;
   /* color: var(--primary); */
   /* background-color: var(--primary); */
+}
+
+.postlist,
+.post-list {
+  margin-top: 10px;
 }
 
 /* login  sign-up*/
@@ -573,6 +583,8 @@ textarea {
   /* display: grid; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
   /* box-shadow: 0px 5px 15px var(--primary); */
+  box-shadow: 0px -4px 16px var(--dark);
+
 }
 
 .footer-btn {

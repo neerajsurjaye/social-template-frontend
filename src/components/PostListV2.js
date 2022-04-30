@@ -37,7 +37,7 @@ const PostListV2 = (props) => {
         </div>
     }
 
-    return <div className="postlist">
+    return <div className="post-list">
         {genList()}
     </div >
 
