@@ -20,7 +20,8 @@ code {
   --hover: #363636;
   --text-highlight: #fffe;
   --text-primary: #fffc;
-  --text-tertiary: #fff8;
+  --text-secondary: #fff8;
+  --text-tertiary: #fff4;
   --primary: #367BF0;
   --err: #d32f2f;
   --success: #388e3c;
@@ -47,7 +48,7 @@ textarea {
   background-color: var(--dark-l3);
   border: none;
   color: var(--text-highlight);
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1rem;
 }
 
@@ -290,6 +291,7 @@ textarea {
   border-radius: 4px;
   padding: 8px 16px;
   min-height: 150px;
+  user-select: none;
   /* box-shadow: 4px 4px 16px black; */
   /* max-height: 250px; */
 }
@@ -658,15 +660,21 @@ textarea {
 .footer-header {
   text-transform: capitalize;
   font-size: 1.4rem;
-  color: var(--text-highlight);
+  color: var(--text-primary);
 }
 
 .footer-list li {
   list-style: none;
+
 }
 
 .footer-list a {
   text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.footer-list a:hover {
+  color: var(--text-primary)
 }
 
 .footer-copyright {
@@ -705,7 +713,7 @@ textarea {
 
   .home,
   .post-page {
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
   }
 
   .home-nav {
@@ -752,7 +760,7 @@ textarea {
 
   .home,
   .post-page {
-    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-columns: 0.2fr 8fr 0.2fr;
   }
 
   .post-form-form {
@@ -762,6 +770,10 @@ textarea {
   .logo {
     width: 120px;
     margin-left: 26px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr 1fr;
   }
 
 

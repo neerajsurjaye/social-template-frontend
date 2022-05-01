@@ -3,7 +3,7 @@ import post from '../services/post';
 
 let CreateComment = (props) => {
 
-    let [comment, setComment] = useState("");
+    let [comment, setComment] = useState();
     let id = props.id;
     let updateComments = props.setComments;
 
@@ -11,7 +11,13 @@ let CreateComment = (props) => {
         setComment(e.target.value);
     }
 
-    let uploadComment = async () => {
+    let uploadComment = async (e) => {
+        e.preventDefault();
+
+        if (!comment || comment.length == 0) {
+            return;
+        }
+
         let token = localStorage.getItem('Auth');
 
         let res = await post.uploadComment(id, comment, token);
@@ -27,14 +33,14 @@ let CreateComment = (props) => {
     }
 
     return <div className="create-comment">
-        <div className="comment-form">
+        <form className="comment-form">
 
             <label htmlFor="comment-inp" className="heading">Add Comment</label>
             <textarea type="text" id="comment-inp" className="inp" value={comment} placeholder="Add a new comment" onChange={updateComment} />
-            <input type="button" className="primary btn" value='Add comment' onClick={uploadComment}></input>
+            <input type="submit" className="primary btn" value='Add comment' onClick={uploadComment}></input>
 
-        </div>
-    </div>
+        </form>
+    </div >
 
 }
 

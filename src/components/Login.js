@@ -130,7 +130,7 @@ const Login = () => {
                 </div>
                 <div className="form-row">
                     <label htmlFor="password">Password</label>
-                    <input className="inp" id="password" type="text" onChange={handlePassword} />
+                    <input className="inp" id="password" type="password" onChange={handlePassword} />
                 </div>
                 <input className="btn primary" type="button" value="Submit" onClick={uploadDetails}></input>
 

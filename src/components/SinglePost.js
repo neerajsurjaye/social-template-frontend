@@ -14,6 +14,9 @@ let SinglePost = () => {
     let { id } = useParams();
     let [post, setPost] = useState();
 
+    window.scrollTo(0, 0);
+
+
     let getPost = async () => {
 
         let res = await get.getPostById(id);

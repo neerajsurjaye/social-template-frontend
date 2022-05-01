@@ -9,6 +9,7 @@ let UserCard = (props) => {
     let id = props.id;
 
     let [currUser, setCurrUser] = useState();
+    let [follows, setFollows] = props.follows;
 
     let updateCurrUser = async () => {
         let res = await get.userById(id);
@@ -18,10 +19,17 @@ let UserCard = (props) => {
 
     let followUser = async () => {
 
+        console.log("following user");
         let token = localStorage.getItem('Auth');
         let res = await put.follow(id, token);
 
-        console.log(res);
+        console.log({ res });
+        setFollows(!follows);
+
+        if (props.setReload) {
+            props.setReload(Math.random());
+        }
+
 
     }
 
@@ -35,15 +43,13 @@ let UserCard = (props) => {
         </div>
     }
 
-    console.log(currUser.likes);
-
     // return
 
 
     return < div className="user-card" >
         <CurrPage name={`user - ${currUser.username}`}></CurrPage>
-        <div className="follow btn" onClick={followUser}>
-            Follow
+        <div className={`follow btn ${!follows ? 'primary' : 'warn'}`} onClick={followUser}>
+            {!follows ? 'Follow' : 'Un Follow'}
         </div>
     </div >
 }

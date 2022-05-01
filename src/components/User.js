@@ -19,11 +19,14 @@ let User = () => {
     let [page, setPage] = useState(0);
     let [search, setSearch] = useState("");
     let [sort, setSort] = useState("new");
+    let [follows, setFollows] = useState(false);
+    let [reload, setReload] = useState(0);
 
     let getPost = async () => {
 
         let res = await get.post(page, search, sort, id);
 
+        console.log(res.success);
 
         if (res.success) {
             setCurrPost(res.success.posts);
@@ -34,9 +37,16 @@ let User = () => {
 
     }
 
+    let checkFollows = async () => {
+        let res = await get.follows(id, localStorage.getItem('Auth'));
+        setFollows(res.success);
+        console.log(res.success);
+    }
+
     useEffect(() => {
         setCurrPost(null);
         getPost();
+        checkFollows();
     }, [page, search, sort]);
 
 
@@ -48,7 +58,7 @@ let User = () => {
 
         <div className="home-post post-main">
             {/* <CurrPage name={`user - ${id}`}></CurrPage> */}
-            <UserCard id={id}></UserCard>
+            <UserCard id={id} follows={[follows, setFollows]} setReload={setReload}></UserCard>
             <SortBar sort={setSort}></SortBar>
             <PostListV2 currPost={currPost}></PostListV2>
             <PageCounter total={pageCount} page={[page, setPage]} ></PageCounter>

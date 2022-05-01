@@ -24,11 +24,11 @@ const Reccomendation = () => {
 
     let updatePosts = async () => {
         let token = localStorage.getItem('Auth');
+        // console.log({ sort, page });
         let res = await get.reccomended(sort, page, token);
         if (res.success) {
             setCurrPost(res.success.posts);
-            console.log(res.success.posts);
-            // setPageCount(res.success.count);
+            setPageCount(res.success.count);
         }
     }
 

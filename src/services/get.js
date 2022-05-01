@@ -55,7 +55,7 @@ let userById = async (id) => {
 
 let postByFollow = async (search, sort, page, token) => {
 
-    console.log(search, sort);
+    // console.log(search, sort);
     let res = await fetch(`${URL}/api/posts/feed?search=${search}&sort=${sort}&page=${page}`, {
         headers: {
             authorization: token
@@ -66,7 +66,7 @@ let postByFollow = async (search, sort, page, token) => {
 }
 
 let singleTag = async (id, sort, page) => {
-    console.log(id, sort);
+    // console.log(id, sort);
     let res = await fetch(`${URL}/api/posts/tag?id=${id}&sort=${sort}&page=${page}`);
     return await res.json();
 }
@@ -81,5 +81,14 @@ let reccomended = async (sort, page, token) => {
     return await res.json();
 }
 
-const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow, singleTag, reccomended };
+let follows = async (id, token) => {
+    let res = await fetch(`${URL}/api/users/follow/${id}`, {
+        headers: {
+            authorization: token
+        }
+    });
+    return await res.json();
+}
+
+const module = { post, currentUser, getPostById, getAllComments, userById, postByFollow, singleTag, reccomended, follows };
 export default module;

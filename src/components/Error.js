@@ -12,9 +12,9 @@ const Error = (props) => {
             {props.message}
         </div>
 
-        <div className="btn">
-            <Link to='/' className='alert-link'>Home</Link>
-        </div>
+        {/* <div className="btn"> */}
+        <Link to='/' className='alert-link btn'>Home</Link>
+        {/* </div> */}
     </div>
 }
 
