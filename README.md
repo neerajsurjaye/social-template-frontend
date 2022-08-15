@@ -1,6 +1,6 @@
 # Socialize
-A text based social media site. Inspired by reddit.
-With its own Reccomendation system.
+A text based social media site; Inspired by reddit;
+With its own Reccomendation system;
 
 ## Images
 1:
